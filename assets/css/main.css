@@ -70,35 +70,8 @@ p {
     margin-bottom: 1em; }
   .zone .inner {
     background-color: #fff;
-    padding: 0 1em;
-    padding-bottom: 6em; }
+    padding: 0 1em; }
 
-.zone-skills .skills {
-  border: 1px solid #191919; }
-
-.zone-skills .skill {
-  height: 240px; }
-
-.zone-skills .skill-title {
-  border: 1px solid #191919;
-  text-align: center;
-  font-size: 1.6em;
-  padding: 2em 0.2em;
-  font-family: 'Playfair Display', serif; }
-  .zone-skills .skill-title p {
-    margin-bottom: 0; }
-
-.zone-skills .skill-content {
-  display: none;
-  border: 1px solid #191919;
-  height: 240px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  padding: 0.5em; }
-
-@media screen and (max-width: 600px) {
-  .content .scrollmagic-pin-spacer {
-    margin-bottom: 0 !important; } }
 @media screen and (min-width: 600px) {
   .header {
     text-align: left;
@@ -107,12 +80,10 @@ p {
     padding: 0.5em 0;
     border-bottom: 1px solid #f2f2f2; }
     .header h1 {
-      margin-bottom: 0;
       float: left;
       line-height: 50px;
       margin-right: 0.5em; }
     .header p {
-      margin-top: 0;
       line-height: 50px; }
     .header:after {
       display: none; }
@@ -123,6 +94,9 @@ p {
       text-align: left; }
     .zone h2 {
       font-size: 4em; } }
+@media screen and (min-width: 800px) {
+  .zone .inner {
+    padding-bottom: 6em; } }
 @media screen and (min-width: 950px) {
   .scrollmagic-pin-spacer {
     pointer-events: none; }
@@ -138,14 +112,8 @@ p {
     right: 0;
     background-color: #fff;
     z-index: 5; }
-    .header h1 {
-      margin-bottom: 0;
-      float: left;
-      line-height: 50px;
-      margin-right: 0.5em; }
     .header p {
-      margin-top: 0;
-      line-height: 50px; }
+      margin-top: 0; }
 
   .zone {
     margin-bottom: 3em;
@@ -163,64 +131,49 @@ p {
         margin-left: -8px; }
     .zone p {
       margin-bottom: 1em; } }
-.glitch:hover {
-  position: relative;
-  animation: noise 2s linear infinite;
-  overflow: default;
-  display: inline-block;
-  white-space: nowrap; }
+@media screen and (max-width: 600px) {
+  .content .scrollmagic-pin-spacer {
+    margin-bottom: 0 !important; } }
+.zone-skills .skill {
+  height: 240px;
+  perspective: 1000px;
+  margin-bottom: 1rem; }
 
-.glitch:after {
-  content: none;
-  font-size: 1.1em;
+.skill-title, .skill-content {
+  backface-visibility: hidden;
   position: absolute;
-  opacity: 0;
-  color: rgba(120, 120, 120, 0.5);
-  animation: noise-1 .2s linear infinite; }
+  top: 0;
+  left: 0; }
 
-.glitch:hover:after {
-  content: attr(data-glitch); }
+.zone-skills .skill-title {
+  border: 1px solid #191919;
+  background-color: #fff;
+  text-align: center;
+  font-size: 1.6em;
+  padding: 0 0.2em;
+  font-family: 'Playfair Display', serif;
+  z-index: 2;
+  transform: rotateY(0deg); }
+  .zone-skills .skill-title p {
+    margin-bottom: 0;
+    line-height: 240px; }
 
-.glitch:hover::before {
-  content: attr(data-glitch);
-  font-size: 1.1em;
-  color: rgba(55, 55, 55, 0.5);
-  animation: noise-2 .2s linear infinite;
-  position: absolute; }
+.zone-skills .skill-content {
+  border: 1px solid #191919;
+  height: 240px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 0.5em;
+  transform: rotateY(180deg); }
 
-@keyframes noise-1 {
-  0%, 20%, 40%, 60%, 70%, 90% {
-    opacity: 0; }
-  10% {
-    opacity: .1; }
-  50% {
-    opacity: .5;
-    left: -6px; }
-  80% {
-    opacity: .3; }
-  100% {
-    opacity: .6;
-    left: 2px; } }
-@keyframes noise-2 {
-  0%, 20%, 40%, 60%, 70%, 90% {
-    opacity: 0; }
-  10% {
-    opacity: .1; }
-  50% {
-    opacity: .5;
-    left: 6px; }
-  80% {
-    opacity: .3; }
-  100% {
-    opacity: .6;
-    left: -2px; } }
-@keyframes noise {
-  0%, 3%, 5%, 42%, 44%, 100% {
-    opacity: 1;
-    transform: scaleY(1); }
-  4.3% {
-    opacity: 1;
-    transform: scaleY(1.7); }
-  43% {
-    opacity: 1;
-    transform: scaleX(1.5); } }
+.skill:hover .inner, .skill.hover .inner {
+  transform: rotateY(180deg); }
+.skill .inner, .skill .skill-title, .skill .skill-content {
+  width: 100%;
+  height: 240px; }
+.skill .inner {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative; }
+.skill:hover .inner, .skill.hover .inner, .skill.flip .inner {
+  transform: rotateY(180deg); }

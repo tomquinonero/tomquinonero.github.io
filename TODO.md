@@ -1,6 +1,6 @@
 TODO
 
-- Refactor css
+- [x] Refactor css
 
 - mettre un statut available or not sur le site
 
@@ -16,3 +16,4 @@ TODO
 
 - [x] mettre console infos (reste skills)
 
+- https://davidwalsh.name/demo/css-spin-revisited.php pour skills
